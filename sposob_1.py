@@ -11,13 +11,6 @@ yiyi = []
 
 sumxi = sumyi = sumxixi = sumxiyi = sumyiyi= 0
 
-'''
-# Ввод данных в память программы
-elements_cnt = int(input('Введите количество вводимых данных: '))
-for element in range(elements_cnt):
-    xi.append(float(input(f'Введите x{element + 1}: ')))
-    yi.append(float(input(f'Введите y{element + 1}: ')))'''
-
 # Расчёт дополнительных переменных
 for element in range(len(xi)):
     xixi.append(round(xi[element] * xi[element], 2))
@@ -66,7 +59,6 @@ if qus_ == 'Y':
     plt.grid(True)
     plt.show()
 
-elif qus_ == 'N':
     elements_cnt = len(xi)
     # Вычисляем коэффициент корреляции
     qx = np.sqrt(sumxixi / elements_cnt - (sumxi / elements_cnt) ** 2)
@@ -77,4 +69,13 @@ elif qus_ == 'N':
     # Выводим коэффициент корреляции
     print(f'Коэффициент корреляции: {r:.2f}')
 
-    # Прописываем часть с построением графика
+elif qus_ == 'N':
+    elements_cnt = len(xi)
+    # Вычисляем коэффициент корреляции
+    qx = np.sqrt(sumxixi / elements_cnt - (sumxi / elements_cnt) ** 2)
+    qy = np.sqrt(sumyiyi / elements_cnt - (sumyi / elements_cnt) ** 2)
+
+    r = (sumxiyi / elements_cnt - (sumxi / elements_cnt) * (sumyi / elements_cnt)) / (qx * qy)
+
+    # Выводим коэффициент корреляции
+    print(f'Коэффициент корреляции: {r:.2f}')
